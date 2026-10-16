@@ -1,0 +1,162 @@
+/**
+ * ===========================================
+ * PRANAV SHARMA - PORTFOLIO V3
+ * Custom Cursor Styles - Adaptive High Contrast
+ * ===========================================
+ * Clean, lightweight, scrapbook-inspired custom cursor.
+ * Adapts automatically to light surfaces and dark sections (e.g., #experience).
+ * Respects text selection, scrolling, touch devices, and reduced motion.
+ */
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    margin-left: -5px;
+    margin-top: -5px;
+    background-color: var(--ink-black);
+    border: 1.5px solid var(--acid-lime);
+    box-shadow: 0 0 0 1px var(--ink-black);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2147483647;
+    will-change: transform;
+    transition: background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                transform 0.15s ease;
+}
+
+.custom-cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    margin-left: -16px;
+    margin-top: -16px;
+    border: 2px solid var(--ink-black);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 2147483646;
+    will-change: transform;
+    box-shadow: 0 0 0 1px rgba(20, 20, 18, 0.1);
+    transition: width 0.2s cubic-bezier(0.2, 0, 0.2, 1),
+                height 0.2s cubic-bezier(0.2, 0, 0.2, 1),
+                margin 0.2s cubic-bezier(0.2, 0, 0.2, 1),
+                background-color 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+/* ===========================================
+   HOVER STATE — Interactive Elements (Light Surfaces)
+   =========================================== */
+
+.custom-cursor.hover {
+    background-color: var(--acid-lime);
+    border-color: var(--ink-black);
+    box-shadow: 0 0 0 2px var(--ink-black);
+}
+
+.custom-cursor-follower.hover {
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
+    border-color: var(--acid-lime);
+    background: rgba(200, 255, 53, 0.18);
+    box-shadow: 0 0 8px rgba(200, 255, 53, 0.3);
+}
+
+/* ===========================================
+   CLICK / ACTIVE STATE (Light Surfaces)
+   =========================================== */
+
+.custom-cursor.active {
+    transform: scale(0.6);
+}
+
+.custom-cursor-follower.active {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    border-color: var(--coral);
+    background: rgba(255, 107, 74, 0.15);
+}
+
+/* ===========================================
+   ADAPTIVE DARK MODE — Inside #experience,
+   .contact-box, .footer, and dark cards
+   =========================================== */
+
+.custom-cursor.on-dark {
+    background-color: var(--acid-lime);
+    border-color: var(--ink-black);
+    box-shadow: 0 0 0 1.5px var(--acid-lime), 0 0 10px rgba(200, 255, 53, 0.8);
+}
+
+.custom-cursor-follower.on-dark {
+    border-color: var(--acid-lime);
+    background: rgba(200, 255, 53, 0.1);
+    box-shadow: 0 0 12px rgba(200, 255, 53, 0.4);
+}
+
+/* Hovering interactive elements on dark backgrounds */
+.custom-cursor.on-dark.hover {
+    background-color: var(--warm-white);
+    border-color: var(--acid-lime);
+    box-shadow: 0 0 12px var(--acid-lime);
+}
+
+.custom-cursor-follower.on-dark.hover {
+    width: 48px;
+    height: 48px;
+    margin-left: -24px;
+    margin-top: -24px;
+    border-color: var(--acid-lime);
+    background: rgba(200, 255, 53, 0.25);
+    box-shadow: 0 0 20px rgba(200, 255, 53, 0.6);
+}
+
+/* Clicking on dark backgrounds */
+.custom-cursor.on-dark.active {
+    transform: scale(0.6);
+    background-color: var(--coral);
+    box-shadow: 0 0 12px var(--coral);
+}
+
+.custom-cursor-follower.on-dark.active {
+    width: 24px;
+    height: 24px;
+    margin-left: -12px;
+    margin-top: -12px;
+    border-color: var(--coral);
+    background: rgba(255, 107, 74, 0.25);
+}
+
+/* ===========================================
+   TOUCHSCREENS & REDUCED MOTION
+   =========================================== */
+
+@media (hover: none), (pointer: coarse) {
+    .custom-cursor,
+    .custom-cursor-follower {
+        display: none !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .custom-cursor,
+    .custom-cursor-follower {
+        display: none !important;
+    }
+}
+
+body[data-cursor="disabled"] .custom-cursor,
+body[data-cursor="disabled"] .custom-cursor-follower {
+    display: none !important;
+}

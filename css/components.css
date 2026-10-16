@@ -1,0 +1,613 @@
+/**
+ * ===========================================
+ * PRANAV SHARMA - PORTFOLIO V4
+ * Component Styles — Asymmetrical Bento, Modal & High Contrast
+ * ===========================================
+ */
+
+/* ===========================================
+   BUTTONS — HIGH CONTRAST
+   =========================================== */
+
+.btn {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: var(--space-md) var(--space-xl);
+    border: var(--border-medium);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: var(--shadow-retro);
+    transition: all var(--transition-fast);
+}
+
+.btn-primary {
+    background: var(--ink-black);
+    color: var(--warm-white);
+}
+
+.btn-primary:hover {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-secondary {
+    background: var(--warm-white);
+    color: var(--ink-black);
+    border-color: var(--ink-black);
+}
+
+.btn-secondary:hover {
+    background: var(--charcoal);
+    color: var(--warm-white);
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* ===========================================
+   PROJECT CARDS — ASYMMETRICAL BENTO GRID V4
+   =========================================== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+    gap: var(--space-xl);
+}
+
+@media (min-width: 968px) {
+    /* Asymmetrical Bento: Make the first featured card span 2 columns */
+    .project-grid .project-card.featured-bento {
+        grid-column: span 2;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .project-grid .project-card.featured-bento .project-card-media {
+        height: 100%;
+        min-height: 280px;
+        border-bottom: none;
+        border-right: var(--border-medium);
+    }
+}
+
+@media (max-width: 600px) {
+    .project-grid { grid-template-columns: 1fr; }
+}
+
+.project-card {
+    background: var(--warm-white);
+    border: var(--border-medium);
+    box-shadow: var(--shadow-retro);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all var(--transition-normal);
+    overflow: hidden;
+}
+
+.project-card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Dark card variation */
+.project-card.card-dark {
+    background: var(--ink-black);
+    color: var(--warm-white);
+}
+
+.project-card.card-dark .project-title {
+    color: var(--warm-white);
+}
+
+.project-card.card-dark .project-description {
+    color: var(--light-grey);
+}
+
+/* Card tape decoration */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 25px;
+    width: 60px;
+    height: 18px;
+    background: rgba(200, 255, 53, 0.85);
+    border: var(--border-thin);
+    transform: rotate(2deg);
+    z-index: 10;
+}
+
+.project-card-media {
+    width: 100%;
+    height: 220px;
+    background: var(--light-grey);
+    border-bottom: var(--border-medium);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-media-placeholder {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--muted-grey);
+    text-align: center;
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.project-card-content {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--space-xs);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.03em;
+    margin-bottom: var(--space-xs);
+    color: var(--ink-black);
+}
+
+.status-badge {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border: 1px solid var(--ink-black);
+    display: inline-block;
+    background: var(--acid-lime);
+    color: var(--ink-black);
+}
+
+.status-badge.in-progress {
+    background: var(--coral);
+    color: white;
+    border-color: var(--coral);
+}
+
+.status-badge.learning {
+    background: var(--sky-blue);
+    color: var(--ink-black);
+}
+
+.status-badge.coming-soon {
+    background: var(--pale-yellow);
+    color: var(--ink-black);
+}
+
+.project-description {
+    font-size: 0.95rem;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+}
+
+.project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    background: var(--paper-surface);
+    border: var(--border-thin);
+    color: var(--charcoal);
+}
+
+.project-actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+.project-action-link {
+    flex: 1;
+    min-width: 100px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: var(--space-sm);
+    text-align: center;
+    border: var(--border-thin);
+    background: var(--paper-surface);
+    color: var(--ink-black);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+.project-action-link:hover {
+    background: var(--acid-lime);
+    box-shadow: 2px 2px 0 var(--ink-black);
+}
+
+.project-action-link.primary {
+    background: var(--ink-black);
+    color: var(--warm-white);
+}
+
+.project-action-link.primary:hover {
+    background: var(--coral);
+    color: white;
+}
+
+/* ===========================================
+   PROJECT DETAIL MODAL (V4 Accessible Dialog)
+   =========================================== */
+
+.project-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 20, 18, 0.75);
+    backdrop-filter: blur(4px);
+    z-index: 10002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-md);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-normal), visibility 0s linear 0.3s;
+}
+
+.project-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--transition-normal), visibility 0s linear 0s;
+}
+
+.project-modal-container {
+    background: var(--warm-white);
+    border: var(--border-thick);
+    box-shadow: 12px 12px 0 var(--ink-black), 0 20px 40px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: var(--space-2xl);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform var(--transition-normal);
+}
+
+.project-modal-overlay.active .project-modal-container {
+    transform: translateY(0);
+}
+
+.project-modal-close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 36px;
+    height: 36px;
+    background: var(--paper-surface);
+    border: var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--ink-black);
+    transition: all var(--transition-fast);
+}
+
+.project-modal-close:hover {
+    background: var(--coral);
+    color: white;
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--ink-black);
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ===========================================
+   VIDEO EDITING SECTION
+   =========================================== */
+
+.video-section-banner {
+    background: var(--warm-white);
+    border: var(--border-medium);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-retro);
+}
+
+.film-perforations {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: var(--space-md);
+    margin-bottom: var(--space-md);
+    border-bottom: 2px dashed var(--muted-grey);
+}
+
+.film-hole {
+    width: 14px;
+    height: 10px;
+    background: var(--ink-black);
+    border-radius: 2px;
+}
+
+.video-timeline-mock {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    background: var(--paper-surface);
+    border: var(--border-thin);
+    padding: var(--space-sm) var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.timeline-playhead {
+    width: 3px;
+    height: 24px;
+    background: var(--coral);
+    position: relative;
+}
+
+.timeline-playhead::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--coral);
+}
+
+.timeline-track-bar {
+    flex: 1;
+    height: 8px;
+    background: var(--light-grey);
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.timeline-track-bar::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 35%;
+    height: 100%;
+    background: var(--soft-lavender);
+}
+
+/* ===========================================
+   AUTOMATION SECTION
+   =========================================== */
+
+.automation-banner {
+    background: var(--warm-white);
+    border: var(--border-medium);
+    padding: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-retro);
+}
+
+.workflow-node-diagram {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
+}
+
+.diagram-node {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: var(--space-xs) var(--space-md);
+    background: var(--sky-blue);
+    border: var(--border-thin);
+    box-shadow: 2px 2px 0 var(--ink-black);
+}
+
+.diagram-node.trigger { background: var(--pale-yellow); }
+.diagram-node.action { background: var(--acid-lime); }
+.diagram-node.ai { background: var(--soft-lavender); }
+
+.diagram-connector {
+    font-family: var(--font-mono);
+    color: var(--muted-grey);
+    font-size: 1rem;
+}
+
+/* Learning Callout Card */
+.learning-callout-card {
+    background: var(--warm-white);
+    border: var(--border-medium);
+    padding: var(--space-2xl) var(--space-xl);
+    text-align: center;
+    box-shadow: var(--shadow-retro);
+    position: relative;
+}
+
+.callout-badge {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    letter-spacing: 0.05em;
+    padding: var(--space-xs) var(--space-lg);
+    background: var(--coral);
+    color: white;
+    border: var(--border-thin);
+    box-shadow: 3px 3px 0 var(--ink-black);
+    display: inline-block;
+    margin-bottom: var(--space-md);
+    transform: rotate(-1.5deg);
+}
+
+.callout-badge.automation {
+    background: var(--sky-blue);
+    color: var(--ink-black);
+}
+
+/* ===========================================
+   SCRAPBOOK STICKERS
+   =========================================== */
+
+.scrapbook-sticker {
+    position: absolute;
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-hand);
+    font-size: 1.25rem;
+    font-weight: 700;
+    border: var(--border-thin);
+    box-shadow: var(--shadow-retro);
+    z-index: 2;
+    transform: rotate(var(--rot, -3deg));
+    transition: transform var(--transition-fast);
+    background: var(--warm-white);
+    color: var(--ink-black);
+}
+
+.scrapbook-sticker:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.sticker-lavender {
+    background: var(--soft-lavender);
+    top: 10%;
+    right: 15%;
+}
+
+.sticker-coral {
+    background: var(--coral);
+    color: white;
+    bottom: 20%;
+    left: 5%;
+    --rot: 4deg;
+}
+
+.sticker-sky {
+    background: var(--sky-blue);
+    top: 50%;
+    right: 5%;
+    --rot: -5deg;
+}
+
+.sticker-yellow {
+    background: var(--pale-yellow);
+    top: 25%;
+    left: 10%;
+    --rot: 2deg;
+}
+
+/* ===========================================
+   SKILL TAGS
+   =========================================== */
+
+.interest-tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-md);
+    background: var(--warm-white);
+    border: var(--border-thin);
+    box-shadow: 2px 2px 0 var(--ink-black);
+    transform: rotate(var(--rot, -1deg));
+    transition: all var(--transition-fast);
+}
+
+.interest-tag:hover {
+    transform: translateY(-2px);
+    background: var(--acid-lime);
+}
+
+.learning-pill {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    padding: var(--space-xs) var(--space-md);
+    background: var(--light-grey);
+    border: var(--border-thin);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* ===========================================
+   INTEREST TAGS GRID
+   =========================================== */
+
+.interest-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+}
+
+/* ===========================================
+   POLAROID & PHOTO FRAMES
+   =========================================== */
+
+.polaroid-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border: var(--border-thin);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* ===========================================
+   EDITORIAL STAMPS
+   =========================================== */
+
+.editorial-stamp {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    padding: 3px 6px;
+    border: 2px solid var(--coral);
+    color: var(--coral);
+    transform: rotate(-6deg);
+}

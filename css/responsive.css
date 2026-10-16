@@ -1,0 +1,752 @@
+/**
+ * ===========================================
+ * PRANAV SHARMA - PORTFOLIO V2
+ * Responsive Styles - Complete Mobile Optimization
+ * ===========================================
+ * Content-driven breakpoints for 320px–1440px+
+ * Touch-friendly, overflow-safe, accessible
+ */
+
+/* ===========================================
+   GLOBAL OVERFLOW SAFETY
+   =========================================== */
+
+img, video, svg, canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Prevent long words from overflowing */
+h1, h2, h3, h4, p, li, a, span, code {
+    overflow-wrap: break-word;
+    word-break: break-word;
+}
+
+/* ===========================================
+   WIDE DESKTOP (1400px+)
+   =========================================== */
+
+@media (min-width: 1400px) {
+    :root {
+        --container-width: 1400px;
+    }
+}
+
+/* ===========================================
+   LAPTOP / SMALL DESKTOP (1024px - 1280px)
+   =========================================== */
+
+@media (max-width: 1280px) {
+    .hero-grid {
+        gap: var(--space-xl);
+    }
+
+    .domain-cards-grid {
+        gap: var(--space-md);
+    }
+}
+
+/* ===========================================
+   TABLET (769px - 1024px)
+   =========================================== */
+
+@media (max-width: 1024px) {
+    .domain-cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+    }
+
+    .hero-grid {
+        gap: var(--space-xl);
+    }
+
+    .hero-stickers {
+        min-height: 240px;
+    }
+
+    .about-layout {
+        gap: var(--space-2xl);
+    }
+
+    .contact-box {
+        box-shadow: 8px 8px 0 var(--acid-lime);
+    }
+}
+
+/* ===========================================
+   TABLET PORTRAIT / LARGE MOBILE (max 968px)
+   Hero grid stacks here
+   =========================================== */
+
+@media (max-width: 968px) {
+    .hero-stickers {
+        min-height: 200px;
+    }
+
+    /* Stack stickers horizontally when hero is single-column */
+    .scrapbook-sticker {
+        position: relative;
+        display: inline-block;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+
+    .hero-stickers {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        min-height: auto;
+        justify-content: flex-start;
+        padding: var(--space-md) 0;
+    }
+}
+
+/* ===========================================
+   MOBILE (max-width: 768px)
+   Main mobile breakpoint
+   =========================================== */
+
+@media (max-width: 768px) {
+    /* ---- Spacing ---- */
+    :root {
+        --container-padding: 1rem;
+    }
+
+    .section {
+        padding: var(--space-2xl) 0;
+    }
+
+    /* ---- Navigation ---- */
+    .nav-cta {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-toggle span {
+        transition: transform var(--transition-normal), opacity var(--transition-normal);
+        transform-origin: center;
+    }
+
+    /* Hamburger → X animation */
+    .nav-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-links {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--warm-white);
+        flex-direction: column;
+        padding: var(--space-xl) var(--space-lg);
+        gap: 0;
+        border-bottom: none;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform var(--transition-normal),
+                    opacity var(--transition-normal),
+                    visibility 0s linear 0.3s;
+        z-index: 999;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        transition: transform var(--transition-normal),
+                    opacity var(--transition-normal),
+                    visibility 0s linear 0s;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 48px;
+        padding: var(--space-md) var(--space-sm);
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--light-grey);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link.active {
+        background: var(--paper-surface);
+        color: var(--ink-black);
+    }
+
+    .nav-link:focus-visible {
+        outline: 3px solid var(--acid-lime);
+        outline-offset: -3px;
+    }
+
+    /* Body scroll lock when nav is open */
+    body.nav-open {
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+        min-height: auto;
+        padding-top: calc(var(--nav-height) + var(--space-lg));
+        padding-bottom: var(--space-2xl);
+    }
+
+    .hero-name {
+        font-size: clamp(2.8rem, 13vw, 4.5rem);
+        letter-spacing: -0.02em;
+    }
+
+    .hero-name .highlight {
+        box-shadow: 3px 3px 0 var(--ink-black);
+        padding: 0 6px;
+    }
+
+    .hero-role {
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+    }
+
+    .hero-role::before {
+        width: 24px;
+        flex-shrink: 0;
+    }
+
+    .hero-intro {
+        font-size: 1rem;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        min-height: 48px;
+        font-size: 0.85rem;
+    }
+
+    /* ---- About ---- */
+    .about-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .polaroid-wrapper {
+        max-width: 240px;
+        transform: rotate(-1deg);
+    }
+
+    .polaroid-wrapper::before {
+        width: 72px;
+        height: 18px;
+    }
+
+    /* ---- Domain Cards ---- */
+    .domain-cards-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+
+    .domain-preview-card {
+        padding: var(--space-lg);
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .domain-preview-card h3 {
+        font-size: 1.5rem;
+    }
+
+    /* ---- Project Tabs ---- */
+    .project-tabs {
+        gap: var(--space-xs);
+    }
+
+    .project-tab {
+        flex: 1;
+        text-align: center;
+        font-size: 0.7rem;
+        padding: var(--space-sm) var(--space-sm);
+        box-shadow: 2px 2px 0 var(--ink-black);
+        letter-spacing: 0.03em;
+        min-height: 44px;
+    }
+
+    /* ---- Project Cards ---- */
+    .project-card {
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .project-card:hover {
+        transform: none;
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .project-card-media {
+        height: 180px;
+    }
+
+    .project-card-content {
+        padding: var(--space-lg);
+    }
+
+    .project-header-row {
+        flex-wrap: wrap;
+        gap: var(--space-xs);
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-actions {
+        flex-direction: column;
+    }
+
+    .project-action-link {
+        min-height: 44px;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    /* ---- Skills ---- */
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skill-category-box {
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .skill-pill {
+        font-size: 0.75rem;
+    }
+
+    /* ---- Timeline ---- */
+    .timeline-container {
+        padding-left: var(--space-xl);
+    }
+
+    .timeline-block::before {
+        left: calc(-1 * var(--space-xl) + 2px);
+        width: 14px;
+        height: 14px;
+    }
+
+    .timeline-card {
+        padding: var(--space-lg);
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    /* ---- Contact ---- */
+    .contact-box {
+        padding: var(--space-2xl) var(--space-lg);
+        box-shadow: 6px 6px 0 var(--acid-lime);
+    }
+
+    .contact-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .contact-btn {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        padding: var(--space-md) var(--space-lg);
+        box-shadow: 3px 3px 0 var(--acid-lime);
+    }
+
+    .contact-btn:hover {
+        transform: none;
+        box-shadow: 3px 3px 0 var(--acid-lime);
+    }
+
+    /* ---- Footer ---- */
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+    }
+
+    /* ---- Video Section ---- */
+    .video-section-banner {
+        padding: var(--space-lg);
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .film-perforations {
+        gap: var(--space-sm);
+    }
+
+    .film-hole {
+        width: 10px;
+        height: 7px;
+    }
+
+    /* ---- Automation ---- */
+    .automation-banner {
+        padding: var(--space-lg);
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .workflow-node-diagram {
+        gap: var(--space-sm);
+    }
+
+    .diagram-node {
+        font-size: 0.65rem;
+        padding: var(--space-xs) var(--space-sm);
+        box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .diagram-connector {
+        font-size: 0.85rem;
+    }
+
+    /* ---- Learning Callouts ---- */
+    .learning-callout-card {
+        padding: var(--space-xl) var(--space-lg);
+        box-shadow: 4px 4px 0 var(--ink-black);
+    }
+
+    .callout-badge {
+        font-size: 1.2rem;
+        padding: var(--space-xs) var(--space-md);
+    }
+}
+
+/* ===========================================
+   SMALL MOBILE (max-width: 480px)
+   =========================================== */
+
+@media (max-width: 480px) {
+    :root {
+        --space-xl: 2rem;
+        --space-2xl: 3rem;
+        --space-3xl: 4rem;
+    }
+
+    .hero-name {
+        font-size: clamp(2.4rem, 14vw, 3.5rem);
+    }
+
+    .hero-name .highlight {
+        border-width: 2px;
+        box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    .hero-intro {
+        font-size: 0.95rem;
+    }
+
+    .hero-stickers {
+        gap: var(--space-xs);
+    }
+
+    .scrapbook-sticker {
+        font-size: 0.95rem;
+        padding: 4px 10px;
+        box-shadow: 2px 2px 0 var(--ink-black);
+    }
+
+    /* Project card tape decoration — hide on narrow */
+    .project-card::before {
+        display: none;
+    }
+
+    .project-card-media {
+        height: 160px;
+    }
+
+    .project-tag {
+        font-size: 0.65rem;
+        padding: 1px 6px;
+    }
+
+    .skill-category-box {
+        padding: var(--space-lg);
+    }
+
+    .skill-pill {
+        font-size: 0.7rem;
+        padding: 3px var(--space-sm);
+    }
+
+    .skill-status-tag {
+        font-size: 0.6rem;
+    }
+
+    .timeline-container {
+        padding-left: var(--space-lg);
+    }
+
+    .timeline-block::before {
+        left: calc(-1 * var(--space-lg) + 4px);
+        width: 12px;
+        height: 12px;
+    }
+
+    .timeline-card {
+        padding: var(--space-md);
+    }
+
+    .contact-box h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+    }
+
+    .contact-box p {
+        font-size: 1rem;
+    }
+
+    .contact-box {
+        padding: var(--space-xl) var(--space-md);
+        box-shadow: 4px 4px 0 var(--acid-lime);
+    }
+
+    .contact-btn {
+        font-size: 0.8rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    /* Section labels and stamps */
+    .section-label {
+        font-size: 0.65rem;
+    }
+
+    .editorial-stamp {
+        font-size: 0.6rem;
+        transform: rotate(-3deg);
+    }
+
+    /* Interest tags */
+    .interest-tag {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        box-shadow: 1px 1px 0 var(--ink-black);
+    }
+
+    .learning-pill {
+        font-size: 0.75rem;
+    }
+
+    /* Domain preview cards */
+    .domain-preview-card {
+        padding: var(--space-md);
+        box-shadow: 3px 3px 0 var(--ink-black);
+    }
+
+    .domain-preview-card h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* ===========================================
+   VERY NARROW MOBILE (max-width: 360px)
+   iPhone SE, Galaxy S series, etc.
+   =========================================== */
+
+@media (max-width: 360px) {
+    :root {
+        --container-padding: 0.75rem;
+    }
+
+    .hero-name {
+        font-size: clamp(2rem, 15vw, 3rem);
+    }
+
+    .hero-role {
+        font-size: 0.7rem;
+        letter-spacing: 0.05em;
+        gap: var(--space-sm);
+    }
+
+    .hero-role::before {
+        width: 16px;
+    }
+
+    .hero-cta .btn {
+        font-size: 0.8rem;
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    .project-tab {
+        font-size: 0.6rem;
+        padding: var(--space-xs) var(--space-xs);
+        letter-spacing: 0;
+    }
+
+    .project-title {
+        font-size: 1.1rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .project-card-content {
+        padding: var(--space-md);
+    }
+
+    .skill-category-box h3 {
+        font-size: 1.1rem;
+    }
+
+    .contact-btn {
+        font-size: 0.75rem;
+        gap: 6px;
+    }
+
+    .contact-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .workflow-node-diagram {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .diagram-connector {
+        transform: rotate(90deg);
+        display: inline-block;
+        margin: -4px 0 -4px var(--space-md);
+    }
+
+    .polaroid-wrapper {
+        max-width: 200px;
+    }
+}
+
+/* ===========================================
+   MINIMUM VIEWPORT (max-width: 320px)
+   iPhone SE (1st gen), very narrow devices
+   =========================================== */
+
+@media (max-width: 320px) {
+    :root {
+        --container-padding: 0.625rem;
+        --space-xl: 1.5rem;
+        --space-2xl: 2.5rem;
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+    }
+
+    .hero-name {
+        font-size: 2rem;
+    }
+
+    .hero-name .highlight {
+        padding: 0 4px;
+    }
+
+    .hero-intro {
+        font-size: 0.9rem;
+    }
+
+    .polaroid-wrapper::before {
+        width: 56px;
+        height: 14px;
+    }
+
+    /* Hide hero stickers entirely on very narrow screens */
+    .hero-stickers {
+        display: none;
+    }
+
+    .project-card-media {
+        height: 140px;
+    }
+
+    .film-perforations {
+        display: none;
+    }
+}
+
+/* ===========================================
+   TOUCH DEVICE OPTIMIZATIONS
+   =========================================== */
+
+@media (hover: none), (pointer: coarse) {
+    /* Disable hover transforms on touch — they stick after tap */
+    .project-card:hover,
+    .domain-preview-card:hover,
+    .contact-btn:hover,
+    .interest-tag:hover,
+    .scrapbook-sticker:hover {
+        transform: none;
+    }
+
+    .project-card:hover {
+        box-shadow: var(--shadow-retro);
+    }
+
+    .domain-preview-card:hover {
+        box-shadow: var(--shadow-retro);
+    }
+
+    /* Ensure all interactive elements are comfortably tappable */
+    .btn,
+    .project-tab,
+    .nav-link,
+    .contact-btn,
+    .project-action-link {
+        min-height: 44px;
+    }
+
+    .project-action-link {
+        padding: var(--space-sm) var(--space-md);
+    }
+}
+
+/* ===========================================
+   REDUCED MOTION
+   =========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .scrapbook-sticker {
+        transition: none;
+    }
+}

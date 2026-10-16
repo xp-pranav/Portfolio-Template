@@ -1,0 +1,403 @@
+/**
+ * ===========================================
+ * PRANAV SHARMA - PORTFOLIO V4
+ * Mini-Game Styles — Bug Hunter Floating Arcade
+ * ===========================================
+ */
+
+/* Hero right-side composition container */
+.hero-arcade-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================================
+   1. IDLE STATE — Floating Scattered Composition
+   =========================================== */
+
+.arcade-idle-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Subtle decorative dashed connector SVG in background */
+.arcade-connectors-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.35;
+}
+
+/* Floating elements */
+.arcade-float-badge {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    background: var(--warm-white);
+    border: var(--border-thin);
+    box-shadow: 3px 3px 0 var(--ink-black);
+    z-index: 3;
+    pointer-events: none;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform var(--transition-fast);
+}
+
+/* Floating element positions & rotations */
+.badge-bug-py {
+    top: 8%;
+    left: 12%;
+    background: var(--soft-lavender);
+    transform: rotate(-5deg);
+}
+
+.badge-syntax-err {
+    bottom: 12%;
+    left: 8%;
+    background: var(--coral);
+    color: white;
+    transform: rotate(4deg);
+}
+
+.badge-404 {
+    top: 15%;
+    right: 8%;
+    background: var(--pale-yellow);
+    transform: rotate(6deg);
+}
+
+.badge-null-ptr {
+    bottom: 18%;
+    right: 14%;
+    background: var(--sky-blue);
+    transform: rotate(-3deg);
+}
+
+/* Geometric floating accents */
+.arcade-geo-ring {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    border: 2px dashed var(--charcoal);
+    border-radius: 50%;
+    top: 48%;
+    left: 4%;
+    opacity: 0.4;
+    pointer-events: none;
+    animation: rotateSlow 20s linear infinite;
+}
+
+.arcade-geo-cross {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 1.2rem;
+    color: var(--muted-grey);
+    top: 72%;
+    right: 6%;
+    pointer-events: none;
+    user-select: none;
+    opacity: 0.6;
+}
+
+.arcade-geo-dots {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    top: 2%;
+    right: 32%;
+    background: radial-gradient(var(--ink-black) 20%, transparent 20%);
+    background-size: 8px 8px;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+@keyframes rotateSlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Scrapbook stickers */
+.arcade-sticker-hunter {
+    position: absolute;
+    top: 28%;
+    left: 2%;
+    background: var(--warm-white);
+    padding: 4px 10px;
+    font-family: var(--font-hand);
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: var(--border-thin);
+    box-shadow: 2px 2px 0 var(--ink-black);
+    transform: rotate(-8deg);
+    z-index: 4;
+}
+
+.arcade-sticker-blitz {
+    position: absolute;
+    top: 68%;
+    right: 12%;
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    padding: 4px 12px;
+    font-family: var(--font-hand);
+    font-size: 1.15rem;
+    font-weight: 700;
+    border: var(--border-thin);
+    box-shadow: 2px 2px 0 var(--ink-black);
+    transform: rotate(5deg);
+    z-index: 4;
+}
+
+/* Prominent PLAY GAME Button */
+.arcade-play-trigger-wrap {
+    position: relative;
+    z-index: 6;
+    text-align: center;
+}
+
+.btn-play-game {
+    font-family: var(--font-display);
+    font-size: 2.1rem;
+    letter-spacing: 0.08em;
+    padding: var(--space-md) var(--space-2xl);
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    border: var(--border-thick);
+    box-shadow: 6px 6px 0 var(--ink-black);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    user-select: none;
+}
+
+.btn-play-game:hover {
+    background: var(--ink-black);
+    color: var(--acid-lime);
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--acid-lime);
+}
+
+.btn-play-game:focus-visible {
+    outline: 3px solid var(--ink-black);
+    outline-offset: 4px;
+}
+
+.arcade-trigger-subtext {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--muted-grey);
+    margin-top: var(--space-sm);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* ===========================================
+   2. ACTIVE GAMEPLAY CONTAINER
+   =========================================== */
+
+.arcade-game-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--warm-white);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-retro);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 10;
+    animation: fadeInGame 0.3s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+@keyframes fadeInGame {
+    from { opacity: 0; transform: scale(0.96); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.arcade-game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--ink-black);
+    color: var(--warm-white);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    border-bottom: var(--border-medium);
+}
+
+.arcade-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.arcade-stat-value {
+    color: var(--acid-lime);
+    font-weight: 700;
+}
+
+.arcade-close-btn {
+    background: var(--coral);
+    color: white;
+    border: 1px solid white;
+    padding: 3px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all var(--transition-fast);
+}
+
+.arcade-close-btn:hover {
+    background: white;
+    color: var(--coral);
+}
+
+/* Playfield */
+.arcade-playfield {
+    position: relative;
+    flex-grow: 1;
+    background: var(--paper-surface);
+    overflow: hidden;
+    background-image: radial-gradient(var(--light-grey) 15%, transparent 16%);
+    background-size: 16px 16px;
+}
+
+/* Clickable bug targets */
+.bug-target {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    background: var(--warm-white);
+    border: var(--border-medium);
+    box-shadow: 3px 3px 0 var(--ink-black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    cursor: pointer;
+    user-select: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, background-color 0.1s ease;
+    animation: bugWiggle 0.35s ease-in-out infinite alternate;
+}
+
+@keyframes bugWiggle {
+    0% { transform: translate(-50%, -50%) rotate(-10deg); }
+    100% { transform: translate(-50%, -50%) rotate(10deg); }
+}
+
+.bug-target:hover {
+    background: var(--acid-lime);
+    transform: translate(-50%, -50%) scale(1.18);
+}
+
+/* Game Over Overlay */
+.arcade-game-over-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(20, 20, 18, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-lg);
+    text-align: center;
+    color: var(--warm-white);
+    z-index: 20;
+    backdrop-filter: blur(2px);
+    animation: fadeInGame 0.25s ease;
+}
+
+.arcade-game-over-overlay h3 {
+    font-size: 2.8rem;
+    color: var(--acid-lime);
+    margin-bottom: var(--space-xs);
+}
+
+.arcade-game-over-overlay p {
+    color: var(--light-grey);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    margin-bottom: var(--space-xl);
+}
+
+/* ===========================================
+   3. RESPONSIVE OPTIMIZATIONS
+   =========================================== */
+
+@media (max-width: 968px) {
+    .hero-arcade-wrapper {
+        min-height: 380px;
+        margin-top: var(--space-xl);
+    }
+
+    .arcade-idle-container {
+        height: 360px;
+    }
+
+    .btn-play-game {
+        font-size: 1.6rem;
+        padding: var(--space-sm) var(--space-xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-arcade-wrapper {
+        min-height: 340px;
+    }
+
+    .arcade-idle-container {
+        height: 320px;
+    }
+
+    .arcade-geo-ring,
+    .arcade-connectors-svg {
+        display: none;
+    }
+
+    .btn-play-game {
+        font-size: 1.4rem;
+        padding: 10px var(--space-lg);
+    }
+
+    .arcade-float-badge {
+        font-size: 0.65rem;
+        padding: 4px 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .arcade-geo-ring {
+        animation: none;
+    }
+    .bug-target {
+        animation: none;
+    }
+}

@@ -1,0 +1,314 @@
+/**
+ * ===========================================
+ * PRANAV SHARMA - PORTFOLIO V4
+ * Experience Section Redesign Styles
+ * Includes: PRANAV.EXE Terminal & Current Focus Workspace
+ * ===========================================
+ */
+
+/* Experience Section Grid Layout (Two Columns on Desktop) */
+.experience-grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .experience-grid-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+}
+
+/* ===========================================
+   1. INTERACTIVE TERMINAL (PRANAV.EXE)
+   =========================================== */
+
+.terminal-window {
+    background: var(--ink-black);
+    color: var(--warm-white);
+    border: 3px solid var(--warm-white);
+    box-shadow: 8px 8px 0 var(--acid-lime);
+    font-family: var(--font-mono);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.terminal-header {
+    background: #22221f;
+    padding: var(--space-sm) var(--space-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #333330;
+}
+
+.terminal-dots {
+    display: flex;
+    gap: 6px;
+}
+
+.terminal-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.dot-red { background: #FF5F56; }
+.dot-yellow { background: #FFBD2E; }
+.dot-green { background: #27C93F; }
+
+.terminal-title {
+    font-size: 0.75rem;
+    color: var(--muted-grey);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.terminal-status {
+    font-size: 0.7rem;
+    color: var(--acid-lime);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.terminal-body {
+    padding: var(--space-md);
+    min-height: 240px;
+    max-height: 340px;
+    overflow-y: auto;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.terminal-line {
+    margin-bottom: var(--space-sm);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.term-prompt {
+    color: var(--acid-lime);
+    font-weight: 700;
+    user-select: none;
+}
+
+.term-cmd {
+    color: var(--warm-white);
+}
+
+.terminal-response {
+    color: var(--light-grey);
+    margin-bottom: var(--space-md);
+    padding-left: 1rem;
+    border-left: 2px solid rgba(191, 255, 0, 0.3);
+}
+
+.term-res-heading {
+    color: var(--acid-lime);
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.term-res-table {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.term-highlight {
+    color: var(--acid-lime);
+    font-weight: 700;
+}
+
+.term-error {
+    color: #FF6B6B;
+}
+
+.term-badge-acid {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    padding: 1px 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Terminal Input Form */
+.terminal-input-form {
+    display: flex;
+    align-items: center;
+    background: #1a1a17;
+    padding: 10px var(--space-md);
+    border-top: 2px solid #333330;
+    gap: 8px;
+}
+
+.terminal-input-field {
+    flex-grow: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--warm-white);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+}
+
+.terminal-input-field::placeholder {
+    color: var(--muted-grey);
+    opacity: 0.6;
+}
+
+.terminal-submit-btn {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    border: none;
+    width: 28px;
+    height: 28px;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform var(--transition-fast);
+}
+
+.terminal-submit-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Terminal Suggestion Chips */
+.terminal-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: var(--space-sm) var(--space-md);
+    background: #141412;
+    border-top: 1px dashed #333330;
+}
+
+.term-chip {
+    background: #252522;
+    color: var(--warm-white);
+    border: 1px solid #444440;
+    padding: 3px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all var(--transition-fast);
+}
+
+.term-chip:hover {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    border-color: var(--acid-lime);
+}
+
+/* ===========================================
+   2. CURRENT FOCUS WORKSPACE (COMPONENT B)
+   =========================================== */
+
+.current-focus-wrapper {
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px dashed rgba(255, 255, 255, 0.15);
+    padding: var(--space-xl);
+    position: relative;
+}
+
+.focus-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
+}
+
+.current-focus-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.focus-item-card {
+    background: rgba(20, 20, 18, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: var(--space-md) var(--space-lg);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.5);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.focus-item-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--acid-lime);
+    box-shadow: 6px 6px 0 var(--acid-lime);
+}
+
+.focus-item-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.focus-item-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+.focus-item-id {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--acid-lime);
+    font-weight: 700;
+}
+
+.focus-item-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--warm-white);
+    letter-spacing: 0.03em;
+    margin: 0;
+}
+
+.focus-status-tag {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border: 1px solid transparent;
+}
+
+.tag-acid {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+}
+
+.tag-coral {
+    background: var(--coral);
+    color: white;
+}
+
+.tag-sky {
+    background: var(--sky-blue);
+    color: var(--ink-black);
+}
+
+.focus-item-desc {
+    color: var(--light-grey);
+    font-size: 0.85rem;
+    margin: 0;
+    line-height: 1.5;
+}

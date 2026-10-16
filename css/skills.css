@@ -1,0 +1,275 @@
+/**
+ * ===========================================
+ * PRANAV SHARMA - PORTFOLIO V4
+ * Skills Dashboard & Tech Stack Playground Styles
+ * ===========================================
+ */
+
+/* Two-Column Skills Dashboard Layout */
+.skills-dashboard-layout {
+    display: grid;
+    grid-template-columns: 62% 38%;
+    gap: var(--space-2xl);
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .skills-dashboard-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+}
+
+/* Left Column: Balanced Category Cards Grid */
+.skills-left-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.skills-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(270px, 100%), 1fr));
+    gap: var(--space-lg);
+}
+
+.skill-category-box {
+    background: var(--warm-white);
+    border: var(--border-medium);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-retro);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.skill-category-box:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.skill-category-box.active-category {
+    border-color: var(--ink-black);
+    box-shadow: 6px 6px 0 var(--acid-lime);
+}
+
+.skill-category-box h3 {
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+    border-bottom: var(--border-thin);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-pill {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 6px 10px;
+    background: var(--paper-surface);
+    border: var(--border-thin);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--charcoal);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.skill-pill:hover {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    border-color: var(--ink-black);
+    transform: translateY(-1px);
+    box-shadow: 2px 2px 0 var(--ink-black);
+}
+
+.skill-pill.selected {
+    background: var(--ink-black);
+    color: var(--acid-lime);
+    border-color: var(--ink-black);
+}
+
+.skill-status-tag {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.status-learning { background: var(--acid-lime); color: var(--ink-black); }
+.status-exploring { background: var(--sky-blue); color: var(--ink-black); }
+.status-familiar { background: var(--soft-lavender); color: var(--ink-black); }
+.status-proficient { background: var(--coral); color: white; }
+
+/* Right Column: Tech Stack Playground (3 Integrated Areas) */
+.skills-right-column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    position: sticky;
+    top: 90px;
+}
+
+@media (max-width: 1024px) {
+    .skills-right-column {
+        position: static;
+    }
+}
+
+/* Playground Wrapper Box */
+.playground-box {
+    background: var(--warm-white);
+    border: var(--border-medium);
+    padding: var(--space-lg);
+    box-shadow: var(--shadow-retro);
+}
+
+.playground-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-xs);
+    border-bottom: var(--border-medium);
+}
+
+.playground-title {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-black);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Area A: Currently Exploring / Learning */
+.explore-pills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.explore-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: var(--paper-surface);
+    border: var(--border-thin);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+.explore-item span {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    background: var(--acid-lime);
+    color: var(--ink-black);
+    text-transform: uppercase;
+}
+
+/* Area B: Interactive Toolbox Selector */
+.toolbox-selector-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    max-height: 160px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.toolbox-chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    background: var(--light-grey);
+    border: var(--border-thin);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.toolbox-chip:hover {
+    background: var(--acid-lime);
+    color: var(--ink-black);
+}
+
+.toolbox-chip.active {
+    background: var(--ink-black);
+    color: var(--acid-lime);
+    border-color: var(--ink-black);
+}
+
+/* Area C: Live Skill Terminal Information Panel */
+.skill-terminal-panel {
+    background: var(--ink-black);
+    color: var(--warm-white);
+    border: var(--border-medium);
+    box-shadow: 6px 6px 0 var(--acid-lime);
+    font-family: var(--font-mono);
+    overflow: hidden;
+}
+
+.skill-terminal-header {
+    background: #22221f;
+    padding: 8px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #333330;
+    font-size: 0.75rem;
+    color: var(--muted-grey);
+}
+
+.skill-terminal-body {
+    padding: var(--space-md);
+    min-height: 160px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.term-output-title {
+    color: var(--acid-lime);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.term-output-content {
+    color: var(--light-grey);
+}
+
+.term-reset-btn {
+    background: var(--coral);
+    color: white;
+    border: 1px solid white;
+    padding: 2px 8px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all var(--transition-fast);
+}
+
+.term-reset-btn:hover {
+    background: white;
+    color: var(--coral);
+}

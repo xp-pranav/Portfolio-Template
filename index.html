@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pranav Sharma — Developer & Creative Technologist. Portfolio showcasing coding, video editing, and automation.">
+    <title>Pranav Sharma — Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@400;700&family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/cursor.css">
+    <link rel="stylesheet" href="css/mini-game.css">
+    <link rel="stylesheet" href="css/terminal.css">
+    <link rel="stylesheet" href="css/skills.css">
+</head>
+<body>
+
+    <!-- ==============================
+         NAVIGATION
+         ============================== -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-brand" aria-label="Pranav Sharma — Home">
+                <span>PS</span><span class="dot" aria-hidden="true"></span>
+            </a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="#contact" class="nav-cta">Let's Talk</a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==============================
+         HERO SECTION
+         ============================== -->
+    <section class="hero section" id="home">
+        <div class="container">
+            <div class="hero-grid">
+
+                <!-- Left: Main content -->
+                <div class="hero-content">
+                    <div class="section-number">— PORTFOLIO 2025</div>
+                    <h1 class="hero-name">
+                        PRANAV<br>
+                        <span class="highlight">SHARMA</span>
+                    </h1>
+                    <div class="hero-role">
+                        <span data-field="role">Developer &amp; Creative Technologist</span>
+                    </div>
+                    <p class="hero-intro" data-field="introduction">
+                        I build creative web experiences and am currently exploring video editing and automation. Still learning, still building.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#work" class="btn btn-primary">View My Work ↓</a>
+                        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+
+                <!-- Right: Scrapbook stickers & Floating Bug Hunter Mini-Game Arcade -->
+                <div class="hero-arcade-wrapper" id="hero-arcade-wrapper">
+                    <div class="arcade-idle-container" id="arcade-idle">
+                        <!-- Background SVG connectors -->
+                        <svg class="arcade-connectors-svg" viewBox="0 0 400 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M 60 70 Q 200 120 200 180" stroke="#141412" stroke-width="2" stroke-dasharray="4 4" />
+                            <path d="M 330 80 Q 250 140 200 180" stroke="#141412" stroke-width="2" stroke-dasharray="4 4" />
+                            <path d="M 70 280 Q 150 240 200 180" stroke="#141412" stroke-width="2" stroke-dasharray="4 4" />
+                            <path d="M 330 270 Q 260 230 200 180" stroke="#141412" stroke-width="2" stroke-dasharray="4 4" />
+                        </svg>
+
+                        <!-- Geometric accents -->
+                        <div class="arcade-geo-dots"></div>
+                        <div class="arcade-geo-ring"></div>
+                        <div class="arcade-geo-cross">+</div>
+
+                        <!-- Floating developer & bug badges -->
+                        <div class="arcade-float-badge badge-bug-py"><span>🐛</span> bug.py:42</div>
+                        <div class="arcade-float-badge badge-404"><span>🐞</span> 404: bug_found</div>
+                        <div class="arcade-float-badge badge-syntax-err"><span>⚡</span> SyntaxError</div>
+                        <div class="arcade-float-badge badge-null-ptr"><span>👾</span> null_pointer</div>
+
+                        <!-- Scrapbook stickers -->
+                        <div class="arcade-sticker-hunter">🐛 Bug Hunter</div>
+                        <div class="arcade-sticker-blitz">30s Sprint ⚡</div>
+
+                        <!-- Central PLAY GAME button trigger -->
+                        <div class="arcade-play-trigger-wrap">
+                            <button class="btn-play-game" id="arcade-start-btn" aria-label="Start Bug Hunter Mini-Game">
+                                <span>▶ PLAY GAME</span>
+                            </button>
+                            <div class="arcade-trigger-subtext">Click to start 30s bug hunt</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         ABOUT SECTION
+         ============================== -->
+    <section class="section bg-warm" id="about">
+        <div class="container">
+            <div class="section-number">— ABOUT ME</div>
+            <div class="section-label">Background</div>
+
+            <div class="about-layout">
+
+                <!-- Polaroid photo frame -->
+                <div class="about-profile animate-on-scroll">
+                    <div class="polaroid-wrapper" style="position:relative;">
+                        <div class="polaroid-image" data-field="profileImage">
+                            <span style="font-family:var(--font-hand);font-size:1rem;color:var(--muted-grey);text-align:center;line-height:1.5;">
+                                Add photo →<br><code style="font-size:0.75rem;">assets/images/profile.jpg</code>
+                            </span>
+                        </div>
+                        <div class="polaroid-caption" data-field="name">Pranav Sharma</div>
+                    </div>
+                </div>
+
+                <!-- Text content -->
+                <div class="about-text-content">
+                    <h2>
+                        Building things,<br>
+                        <span style="background:var(--acid-lime);padding:0 10px;display:inline-block;transform:rotate(-1.5deg);">learning always</span>.
+                    </h2>
+                    <p data-field="aboutDescription">
+                        I'm a student and self-taught developer who enjoys creating things for the web.
+                        My journey started with curiosity about how websites work, and it has grown into a passion
+                        for building interactive, visually interesting experiences.
+                    </p>
+
+                    <div class="interests-container" style="margin-top:var(--space-xl);">
+                        <h4 style="font-family:var(--font-mono);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted-grey);margin-bottom:var(--space-sm);">Interests</h4>
+                        <div class="interest-tags" id="interests-list"></div>
+                    </div>
+
+                    <div class="learning-section animate-on-scroll" style="background:var(--light-grey);padding:var(--space-lg);border:var(--border-medium);margin-top:var(--space-xl);position:relative;">
+                        <div style="position:absolute;top:-12px;left:var(--space-md);background:var(--coral);color:white;font-family:var(--font-mono);font-size:0.65rem;font-weight:700;padding:4px 10px;text-transform:uppercase;letter-spacing:0.1em;">Currently Learning</div>
+                        <div id="learning-list" style="display:flex;flex-wrap:wrap;gap:var(--space-sm);margin-top:var(--space-sm);"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         WORK SECTION — Three Domains
+         ============================== -->
+    <section class="section bg-paper" id="work">
+        <div class="container">
+            <div class="section-number">— MY WORK</div>
+            <div class="section-label">Creative Domains</div>
+
+            <!-- Domain preview cards -->
+            <div class="domain-cards-grid">
+                <div class="domain-preview-card primary animate-on-scroll">
+                    <span class="domain-tag">01 — Primary</span>
+                    <h3>CODING<br>&amp; DEV</h3>
+                    <p>Building web experiences with code.</p>
+                </div>
+                <div class="domain-preview-card animate-on-scroll">
+                    <span class="domain-tag" style="color:var(--coral);border-color:var(--coral);">02 — Learning</span>
+                    <h3>VIDEO<br>EDITING</h3>
+                    <p>Exploring storytelling through cuts.</p>
+                </div>
+                <div class="domain-preview-card animate-on-scroll">
+                    <span class="domain-tag" style="color:var(--sky-blue);border-color:var(--sky-blue);">03 — Exploring</span>
+                    <h3>AUTOMATION<br>&amp; AI</h3>
+                    <p>Scripts and workflow design.</p>
+                </div>
+            </div>
+
+            <!-- Category tabs -->
+            <div class="project-tabs" role="tablist" aria-label="Project categories">
+                <button class="project-tab active" data-tab="coding" role="tab" aria-selected="true" aria-controls="coding-projects">⌨ Coding Projects</button>
+                <button class="project-tab" data-tab="video" role="tab" aria-selected="false" aria-controls="video-projects">🎬 Video Editing</button>
+                <button class="project-tab" data-tab="automation" role="tab" aria-selected="false" aria-controls="automation-projects">⚡ Automation</button>
+            </div>
+
+            <!-- Coding projects (default visible) -->
+            <div id="coding-projects" class="project-panel" role="tabpanel" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(340px,100%),1fr));gap:var(--space-xl);"></div>
+
+            <!-- Video projects (hidden) -->
+            <div id="video-projects" class="project-panel" role="tabpanel" style="display:none;"></div>
+
+            <!-- Automation projects (hidden) -->
+            <div id="automation-projects" class="project-panel" role="tabpanel" style="display:none;"></div>
+
+        </div>
+    </section>
+
+    <!-- ==============================
+         SKILLS SECTION
+         ============================== -->
+    <section class="section bg-cream" id="skills">
+        <div class="container">
+            <div class="section-number">— TOOLKIT</div>
+            <div class="section-label">Skills</div>
+
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:var(--space-lg);margin-bottom:var(--space-xl);">
+                <h2>What I work<br>with.</h2>
+                <p style="max-width:280px;font-size:0.9rem;color:var(--muted-grey);margin:0;line-height:1.6;">
+                    No fake progress bars — just honest labels about where I actually am with each tool.
+                </p>
+            </div>
+
+            <!-- Skills grid populated by main.js -->
+            <div class="skills-grid" id="skills-container"></div>
+
+        </div>
+    </section>
+
+    <!-- ==============================
+         EXPERIENCE SECTION
+         ============================== -->
+    <section class="section bg-dark" id="experience">
+        <div class="container">
+            <div class="section-number" style="color:var(--acid-lime);">— JOURNEY &amp; FOCUS</div>
+            <div class="section-label" style="background:var(--acid-lime);color:var(--ink-black);">Experience</div>
+
+            <h2 style="color:var(--warm-white);margin-bottom:var(--space-2xl);">How I got here<br>&amp; what I'm building.</h2>
+
+            <!-- Experience Grid: Left = Timeline, Right = PRANAV.EXE Terminal & Current Focus -->
+            <div class="experience-grid-layout">
+
+                <!-- Left Column: Timeline -->
+                <div class="experience-column-timeline">
+                    <h3 style="color:var(--acid-lime);font-family:var(--font-mono);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:var(--space-xl);">01 // Timeline</h3>
+                    <div class="timeline-container" id="experience-timeline"></div>
+                </div>
+
+                <!-- Right Column: Interactive Terminal & Current Focus -->
+                <div class="experience-column-interactive">
+
+                    <!-- Component A: Interactive Terminal (PRANAV.EXE) -->
+                    <div class="terminal-card-wrapper animate-on-scroll" style="margin-bottom:var(--space-2xl);">
+                        <div class="terminal-window">
+                            <div class="terminal-header">
+                                <div class="terminal-dots">
+                                    <span class="dot-red"></span>
+                                    <span class="dot-yellow"></span>
+                                    <span class="dot-green"></span>
+                                </div>
+                                <div class="terminal-title">PRANAV.EXE — Interactive Terminal v4.0</div>
+                                <div class="terminal-status">● LIVE</div>
+                            </div>
+                            <div class="terminal-body" id="terminal-output">
+                                <div class="terminal-line">
+                                    <span class="term-prompt">guest@pranav:~$</span> <span class="term-cmd">init portfolio_v4.sh</span>
+                                </div>
+                                <div class="terminal-response">
+                                    System initialized successfully. Welcome to Pranav Sharma's interactive CLI.<br>
+                                    Type <span class="term-highlight">help</span> to list available commands or click a suggestion chip below.
+                                </div>
+                            </div>
+                            <form class="terminal-input-form" id="terminal-form">
+                                <span class="term-prompt">guest@pranav:~$</span>
+                                <input type="text" id="terminal-input" class="terminal-input-field" placeholder="try 'skills', 'projects', 'about'..." autocomplete="off" spellcheck="false">
+                                <button type="submit" class="terminal-submit-btn">↵</button>
+                            </form>
+                            <div class="terminal-suggestions" id="terminal-suggestions">
+                                <button type="button" class="term-chip" data-cmd="help">help</button>
+                                <button type="button" class="term-chip" data-cmd="about">about</button>
+                                <button type="button" class="term-chip" data-cmd="skills">skills</button>
+                                <button type="button" class="term-chip" data-cmd="projects">projects</button>
+                                <button type="button" class="term-chip" data-cmd="journey">journey</button>
+                                <button type="button" class="term-chip" data-cmd="clear">clear</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Component B: What I'm Working On / Current Focus -->
+                    <div class="current-focus-wrapper animate-on-scroll">
+                        <div class="focus-header-row">
+                            <span class="editorial-stamp" style="background:var(--acid-lime);color:var(--ink-black);border-color:var(--acid-lime);">02 // Active Focus</span>
+                            <h3 style="color:var(--warm-white);font-size:1.3rem;margin:0;">Current Focus Workspace</h3>
+                        </div>
+                        <p style="color:var(--light-grey);font-size:0.9rem;margin-bottom:var(--space-md);line-height:1.5;">
+                            Active domains and skill tracks I am dedicating my time and practice to right now.
+                        </p>
+                        <div class="current-focus-list" id="current-focus-list"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==============================
+         CONTACT SECTION
+         ============================== -->
+    <section class="section bg-paper" id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <div class="section-number" style="color:var(--acid-lime);margin-bottom:var(--space-md);">— SAY HELLO</div>
+                <h2>Let's talk<span style="color:var(--acid-lime);">.</span></h2>
+                <p>Whether you have a project idea, want to collaborate, or just want to say hi — my inbox is open.</p>
+
+                <!-- Social buttons populated by main.js -->
+                <div class="contact-buttons" id="contact-links"></div>
+
+                <!-- Email fallback line populated by main.js -->
+                <p id="contact-email-line" style="font-family:var(--font-mono);font-size:0.85rem;color:var(--muted-grey);margin-top:var(--space-lg);display:none;"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         FOOTER
+         ============================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <p>&copy; 2025 <span data-field="footerName">Pranav Sharma</span>. <span data-field="creditText">Built with curiosity ☕</span></p>
+                <div class="footer-social" id="footer-social"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==============================
+         SCRIPTS — order matters
+         ============================== -->
+    <script src="js/data.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/interactions.js"></script>
+    <script src="js/mini-game.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+</html>
